@@ -1,1 +1,24 @@
+# GitHub Pages Configuration
 theme: jekyll-theme-cayman
+
+# Site settings
+title: Mithun Verma | Portfolio
+description: Experienced Developer skilled in asp.net, C#, ML.NET, DNN, SQL Server, Angular, and JavaScript
+author: Mithun Verma
+
+# GitHub Pages will automatically use the index.html file
+# Set the base URL if needed (leave empty for user/org pages)
+baseurl: ""
+
+# Enable GitHub Pages
+plugins:
+  - jekyll-relative-links
+
+# Relative links configuration
+relative_links:
+  enabled: true
+  collections: true
+
+# Exclude files from the site
+exclude:
+  - README.md

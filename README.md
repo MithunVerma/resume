@@ -1,37 +1,59 @@
-## Welcome to GitHub Pages
+# Mithun Verma - Portfolio Website
 
-You can use the [editor on GitHub](https://github.com/MithunVerma/MithunV.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+This repository contains my personal portfolio website showcasing my experience, education, skills, and projects.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## 🌐 Live Public Page
 
-### Markdown
+Visit my portfolio at: **[https://mithunverma.github.io/resume/](https://mithunverma.github.io/resume/)**
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## 👨‍💻 About Me
 
-```markdown
-Syntax highlighted code block
+Experienced Developer with a demonstrated history of working in the information technology and services industry. Skilled in:
+- ASP.NET, C#, ML.NET, DNN
+- SQL Server
+- Angular & JavaScript
+- HTML5, CSS3, Bootstrap
 
-# Header 1
-## Header 2
-### Header 3
+## 📂 Repository Structure
 
-- Bulleted
-- List
+- `index.html` - Main portfolio page with sections for experience, education, skills, and contact
+- `projects.html` - Projects showcase page
+- `style.css` - Styling for the website
+- `script.js` - JavaScript functionality
+- `images/` - Images and assets
+- `_config.yml` - GitHub Pages configuration
 
-1. Numbered
-2. List
+## 🚀 GitHub Pages Setup
 
-**Bold** and _Italic_ and `Code` text
+This site is hosted using GitHub Pages with Jekyll. To enable GitHub Pages for this repository:
 
-[Link](url) and ![Image](src)
-```
+1. Go to **Repository Settings**
+2. Navigate to **Pages** section
+3. Under **Source**, select the branch: `main`
+4. Save the settings
+5. Your site will be published at `https://[username].github.io/resume/`
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## 📱 Contact
 
-### Jekyll Themes
+- **Email**: mvrkv0064@gmail.com
+- **Phone**: +91 9621946192
+- **LinkedIn**: [linkedin.com/in/mithunver](https://www.linkedin.com/in/mithunver/)
+- **WhatsApp**: [wa.me/919621946192](https://wa.me/919621946192)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MithunVerma/MithunV.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## 🎓 Education
 
-### Support or Contact
+**Bachelor of Technology** - Computer Science Engineering  
+Dr. APJ Abdul Kalam Technical University, Lucknow (2015-2019)
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## 💼 Experience
+
+**Software Developer** at Cyber Infrastructure, Indore  
+March 2019 - Present
+
+## 📄 License
+
+Copyright © 2021-2024 by Mithun Verma
+
+---
+
+Made with ❤️ by Mithun Verma
