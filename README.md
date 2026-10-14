@@ -4,6 +4,14 @@ You can use the [editor on GitHub](https://github.com/MithunVerma/MithunV.github
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
+### View locally
+
+To view this site on your own computer:
+
+1. Clone the repository: `git clone https://github.com/MithunVerma/resume.git`
+2. Navigate to the folder: `cd resume`
+3. Open `index.html` in your web browser
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
