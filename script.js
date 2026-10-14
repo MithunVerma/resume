@@ -1,3 +1,4 @@
+// This script handles the mobile navigation menu toggle and smooth scrolling for anchor links
 $(document).ready(
     function(){
         // when menu opens
