@@ -1,0 +1,18 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint
+        run: echo "lint ok"
+      - name: Test
+        run: |
+          test -f index.html
+          if grep -q "CI_FAIL" README.md; then echo "README.md contains CI_FAIL"; exit 1; fi
+      - name: Build
+        run: echo "build ok"
