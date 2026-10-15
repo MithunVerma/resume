@@ -1,3 +1,14 @@
+/* CSS Variables */
+:root {
+    --primary-color: #182153;
+    --border-color: #979797;
+    --bg-light: #dbdbdb;
+    --accent-color: #00b2ff;
+    --text-light: #fff;
+    --footer-bg: rgb(90, 89, 89);
+    --footer-text: rgb(214, 214, 214);
+}
+
 /* css to reset all */
 *{
     margin: 0;
@@ -5,10 +16,15 @@
     box-sizing: border-box;
 }
 
+/* smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
 /* css for font styles */
 html, body {
-    background-color: #fff;
-    color: #182153;
+    background-color: var(--text-light);
+    color: var(--primary-color);
     font-family: 'Lato', sans-serif;            
 }
 
@@ -23,10 +39,10 @@ h3 {
 }
 
 h4 {
-    border-top: 1px solid #979797;
+    border-top: 1px solid var(--border-color);
     padding-top: 1em;
     margin-top: 1em;
-    border-bottom: 1px solid #979797;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 1em;
     margin-bottom: 1em;
 }
@@ -48,7 +64,7 @@ section{
 /* css for section title */
 .title{
     width: 100%;
-    border-bottom: 1px solid #979797;
+    border-bottom: 1px solid var(--border-color);
     text-align: center;
     padding-bottom: 1em;
 }
@@ -79,13 +95,26 @@ section{
 
 /* separate rows */
 .border-bottom{
-    border-bottom: 1px solid #979797;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 1em;
 }
 
 /* tech. used */
 .small-text{
     font-size: 0.8em;
+}
+
+/* Visually hidden labels for accessibility */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 /* header section */
@@ -97,9 +126,10 @@ section{
     flex-direction: column;
     position: fixed;
     top: 0;
-    background-color: white;
+    background-color: var(--text-light);
     width: 100%;
-    border-bottom: 1px solid #979797;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
 }
 
 /* logos, icons */
@@ -116,7 +146,20 @@ section{
 
 .logo a{
     text-decoration: none;
-    color: #182153;
+    color: var(--primary-color);
+}
+
+.profile-img {
+    border-radius: 50%;
+}
+
+.name-header {
+    margin-top: 18px;
+}
+
+.name-text {
+    font-size: 22px;
+    color: var(--accent-color);
 }
 
 /* menu icons */
@@ -135,7 +178,7 @@ section{
 /* navigation tabs */
 nav div{
     width: 100%;
-    border-bottom: 1px solid #dbdbdb;
+    border-bottom: 1px solid var(--bg-light);
     text-align: center;
     display: none;
     cursor: pointer;
@@ -143,7 +186,7 @@ nav div{
 }
 
 nav div:first-child{
-    border-top: 1px solid #dbdbdb;
+    border-top: 1px solid var(--bg-light);
 }
 
 nav div:last-child{
@@ -154,16 +197,16 @@ nav div:last-child{
 nav a{
     display: block;
     text-decoration: none;
-    color: #182153;
+    color: var(--primary-color);
 }
 
 /* navigation hover */
 nav div:hover{
-    background-color: #182153;
+    background-color: var(--primary-color);
 }
 
 nav div:hover a{
-    color: white;
+    color: var(--text-light);
 }
 
 /* intro section */
@@ -180,7 +223,7 @@ nav div:hover a{
 .hero .callout{
     padding: 1em 0.5em;
     text-align: center;
-    background-color: #dbdbdb;
+    background-color: var(--bg-light);
     margin: 0 auto;
     width: 100%;
 }
@@ -189,7 +232,7 @@ nav div:hover a{
 
 /* bg-color - changes every alt. section  */
 .education{
-    background-color: #dbdbdb;
+    background-color: var(--bg-light);
 }
 
 /* skills section */
@@ -198,7 +241,7 @@ nav div:hover a{
 .skills .item{
     display: flex;
     justify-content: left;
-    background-color: #182153;
+    background-color: var(--primary-color);
     padding: 0.5em 0;
     padding-left: 2em;
     margin: 1em 0;
@@ -217,6 +260,7 @@ nav div:hover a{
 .skills img{
     margin-right: 1em;
 }
+
 .logocis>a {
     background: url(https://www.cisin.com/images/logo.png);
     width: 113px;
@@ -225,6 +269,7 @@ nav div:hover a{
     background-color: #141414;
     border-radius: 5%;
 }
+
 .logocaktu>a {
     background: url(https://aktu.ac.in/images/logo.png);
     width: 100px;
@@ -237,7 +282,7 @@ nav div:hover a{
 
 /* bg-color - changes every alt. section */
 .contact{
-    background-color: #dbdbdb;
+    background-color: var(--bg-light);
 }
 
 /* styling contact form */
@@ -271,24 +316,31 @@ nav div:hover a{
 }
 
 .contact input[type="submit"]{
-    background-color: #182153;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact input[type="submit"]:hover{
+    background-color: #0f1838;
 }
 
 /* style social media icons */
 .contact .social{
     line-height: 3em;
-    border-top: 1px solid #979797;
+    border-top: 1px solid var(--border-color);
 }
 
 .social a{
     text-decoration: none;    
-    color: #182153;
+    color: var(--primary-color);
     margin-right: 15px;
+    transition: color 0.3s ease;
 }
 
 .social a:hover{
-    color: white;
+    color: var(--accent-color);
 }
 
 /* footer section */
@@ -296,11 +348,15 @@ nav div:hover a{
 footer{
     padding: 1em 0;
     font-size: 0.8em;
-    background-color: rgb(90, 89, 89);
-    color: rgb(214, 214, 214);
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
 }
 
 /* projects section */
+
+#projects {
+    min-height: 50vh;
+}
 
 #projects p{
     padding-top: 1em;
@@ -309,6 +365,16 @@ footer{
 
 #projects .small-text{
     font-size: 0.75em;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3em 1em;
+}
+
+.empty-state p {
+    font-size: 1.2em;
+    color: var(--border-color);
 }
 
 .btn {
