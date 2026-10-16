@@ -2,12 +2,20 @@
 /* CSS Variables */
 :root {
     --primary-color: #182153;
-    --border-color: #979797;
-    --bg-light: #dbdbdb;
+    --primary-dark: #0f1838;
+    --border-color: #e0e0e0;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
     --accent-color: #00b2ff;
+    --accent-hover: #0096d9;
     --text-light: #fff;
-    --footer-bg: rgb(90, 89, 89);
-    --footer-text: rgb(214, 214, 214);
+    --text-dark: #2c3e50;
+    --footer-bg: #1a1a2e;
+    --footer-text: #ecf0f1;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+    --transition-speed: 0.3s;
 }
 
 /* css to reset all */
@@ -31,12 +39,17 @@ html, body {
 
 /* css for heading and paragraph tags */
 h2 {
-    font-size: 1.3em;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
 }
 
 h3 {
-    font-size: 1.2em;
-    line-height: 1.5em;
+    font-size: 1.3em;
+    line-height: 1.6em;
+    font-weight: 600;
+    color: var(--text-dark);
 }
 
 h4 {
@@ -46,28 +59,40 @@ h4 {
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 1em;
     margin-bottom: 1em;
+    font-weight: 600;
 }
 
 h5 {
-    font-size: 0.7em;
+    font-size: 0.85em;
+    font-weight: 500;
+    color: var(--text-dark);
 }
 
 p {
     line-height: 1.8em;
-    font-size: 0.8em;
+    font-size: 0.95em;
+    color: var(--text-dark);
 }
 
 /* css for section tag */
 section{
-    padding: 2em 0;
+    padding: 4em 0;
+    transition: all var(--transition-speed) ease;
 }
 
 /* css for section title */
 .title{
     width: 100%;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--accent-color);
     text-align: center;
-    padding-bottom: 1em;
+    padding-bottom: 1.5em;
+    margin-bottom: 2em;
+}
+
+.title h2 {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 0.5em;
 }
 
 /* css for rows - making grids */
@@ -97,7 +122,15 @@ section{
 /* separate rows */
 .border-bottom{
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 1em;
+    padding-bottom: 1.5em;
+    margin-bottom: 1em;
+    transition: all var(--transition-speed) ease;
+}
+
+.border-bottom:hover {
+    transform: translateX(5px);
+    padding-left: 10px;
+    border-left: 3px solid var(--accent-color);
 }
 
 /* tech. used */
@@ -127,10 +160,12 @@ section{
     flex-direction: column;
     position: fixed;
     top: 0;
-    background-color: var(--text-light);
+    background-color: var(--bg-white);
     width: 100%;
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-speed) ease;
 }
 
 /* logos, icons */
@@ -152,6 +187,13 @@ section{
 
 .profile-img {
     border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
 }
 
 .name-header {
@@ -160,7 +202,11 @@ section{
 
 .name-text {
     font-size: 22px;
-    color: var(--accent-color);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* menu icons */
@@ -203,7 +249,9 @@ nav a{
 
 /* navigation hover */
 nav div:hover{
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    transform: translateY(-2px);
+    transition: all var(--transition-speed) ease;
 }
 
 nav div:hover a{
@@ -214,19 +262,48 @@ nav div:hover a{
 
 /* background image */
 .hero{
-    background-image: linear-gradient(rgba(24, 33, 83, 0.7), rgba(24, 33, 83, 0.7)), url("images/hero-img.jpg");
+    background: linear-gradient(135deg, rgba(24, 33, 83, 0.85), rgba(0, 178, 255, 0.75)), url("images/hero-img.jpg");
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     margin-top: 4em;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 /* responsive intro section */
 .hero .callout{
-    padding: 1em 0.5em;
+    padding: 2em 1.5em;
     text-align: center;
-    background-color: var(--bg-light);
+    background-color: rgba(255, 255, 255, 0.95);
     margin: 0 auto;
     width: 100%;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* education section */
@@ -242,14 +319,24 @@ nav div:hover a{
 .skills .item{
     display: flex;
     justify-content: left;
-    background-color: var(--primary-color);
-    padding: 0.5em 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    padding: 1em 0;
     padding-left: 2em;
     margin: 1em 0;
     margin-left: 10%;
     margin-right: 10%;
     align-items: center;
-    color: rgb(230, 227, 227);
+    color: rgb(255, 255, 255);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-speed) ease;
+    cursor: pointer;
+}
+
+.skills .item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
 }
 
 /* last item in skills list */
@@ -259,7 +346,13 @@ nav div:hover a{
 
 /* skill icon */
 .skills img{
-    margin-right: 1em;
+    margin-right: 1.5em;
+    transition: transform var(--transition-speed) ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.skills .item:hover img {
+    transform: rotate(360deg) scale(1.1);
 }
 
 .logocis>a {
@@ -288,12 +381,22 @@ nav div:hover a{
 
 /* styling contact form */
 .contact input{
-    height: 2.5em;
+    height: 3em;
     width: 100%;
     margin-bottom: 1em;
-    border-radius: 2px;
-    border: none;
-    padding: 5px;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    padding: 10px 15px;
+    font-size: 1em;
+    transition: all var(--transition-speed) ease;
+    background-color: var(--bg-white);
+}
+
+.contact input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 178, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 /* resetting name and email field */
