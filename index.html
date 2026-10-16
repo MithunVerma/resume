@@ -1,50 +1,103 @@
 <!DOCTYPE html>
 
+<!-- ============================================================
+     RESUME PORTFOLIO WEBSITE
+     A modern, responsive portfolio for Mithun Verma
+     Built with semantic HTML5, CSS3, and vanilla JavaScript
+     ============================================================ -->
 <html lang="en">
-    <!-- head section -->
+    <!-- ========================================================
+         HEAD SECTION
+         Contains metadata, SEO tags, and external resources
+         ======================================================== -->
     <head>
-        <!-- meta tags -->
+        <!-- ====================================================
+             CHARACTER ENCODING AND VIEWPORT
+             UTF-8 for international character support
+             Viewport for responsive mobile design
+             ==================================================== -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <!-- ====================================================
+             SEO META TAGS
+             Description and keywords for search engines
+             ==================================================== -->
         <meta name="description" content="Mithun Verma - Full Stack Developer specializing in .NET Core, Angular, and SQL Server. Experienced developer with expertise in C#, ML.NET, DNN, and JavaScript.">
         <meta name="keywords" content="Mithun Verma, Mv, web developer, CNSS, front-end developer, full-stack developer, .NET Core developer, Angular developer, SQL Server">
+        
+        <!-- ====================================================
+             OPEN GRAPH TAGS
+             For better sharing on social media platforms
+             ==================================================== -->
         <meta property="og:title" content="Mithun Verma | Portfolio">
         <meta property="og:description" content="Full Stack Developer Portfolio - .NET Core, Angular, SQL Server">
         <meta property="og:image" content="images/mithundp.jpeg">
 
-        <!-- font links -->
+        <!-- ====================================================
+             EXTERNAL FONTS
+             Google Fonts - Lato for clean, modern typography
+             ==================================================== -->
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 
-        <!-- icon link -->
+        <!-- ====================================================
+             FAVICON
+             Browser tab icon
+             ==================================================== -->
         <link rel="icon" href="images/logo.png" type="image/png">
         
-        <!-- font-awesome links - Updated to latest version -->
+        <!-- ====================================================
+             FONT AWESOME ICONS
+             Icon library for social media and UI icons
+             Version 6.5.1 with integrity check for security
+             ==================================================== -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <!-- CSS link -->
+        <!-- ====================================================
+             CUSTOM STYLESHEET
+             Main CSS file with all styling and animations
+             ==================================================== -->
         <link rel="stylesheet" type="text/css" href="style.css">
 
-        <!-- title -->
+        <!-- ====================================================
+             PAGE TITLE
+             Displayed in browser tab
+             ==================================================== -->
         <title>Mithun Verma | Portfolio</title>
     </head>
     
+    <!-- ========================================================
+         BODY - MAIN CONTENT CONTAINER
+         ======================================================== -->
     <body>
-        <!-- navigation -->
+        <!-- ====================================================
+             HEADER - FIXED NAVIGATION BAR
+             Stays at top of viewport while scrolling
+             Contains logo, name, and navigation menu
+             ==================================================== -->
         <header id="top">
             <div class="header-row">
+                <!-- Logo and menu toggle icons -->
                 <div class="small-header">
+                    <!-- Profile photo logo (links to top of page) -->
                     <div class="logo">
                         <a href="#"><img width="60" height="60" class="profile-img" src="images/mithundp.jpeg" alt="Mithun Verma profile photo"/></a>
                     </div>
+                    
+                    <!-- Name with gradient text effect -->
                     <div class="name-header">
                         <span class="name-text">Mithun Verma</span>
                     </div>
                     
-                    <i class="fas fa-times menu-close-icon"></i>              
-                    <i class="fas fa-bars menu-icon"></i>
+                    <!-- Mobile menu toggle icons (controlled by JavaScript) -->
+                    <i class="fas fa-times menu-close-icon"></i>   <!-- X icon to close menu -->           
+                    <i class="fas fa-bars menu-icon"></i>          <!-- Hamburger icon to open menu -->
                 </div>            
                 
+                <!-- Main navigation menu
+                     Hidden on mobile by default (shown when hamburger clicked)
+                     Horizontal and always visible on desktop -->
                 <nav>
                     <div>
                         <a href="#experience">Experience</a>
@@ -62,6 +115,7 @@
                         <a href="#contact">Contact</a>
                     </div>
 
+                    <!-- External link to projects page -->
                     <div>
                         <a href="projects.html">Projects</a>
                     </div>
@@ -69,10 +123,19 @@
             </div>
         </header>
 
+        <!-- ====================================================
+             MAIN CONTENT AREA
+             Contains all page sections (semantic HTML5)
+             ==================================================== -->
         <main>
-            <!-- intro -->
+            <!-- ================================================
+                 HERO SECTION
+                 Introduction banner with background image
+                 Includes gradient overlay and fade-in animation
+                 ================================================ -->
             <section class="hero">
                 <div class="row">
+                    <!-- Centered callout box with intro text -->
                     <div class="callout">
                         <h2>Hi! I am <span style="color: darkorchid;">Mithun Verma</span></h2>
                         <br>
@@ -83,20 +146,29 @@
                 </div>
             </section>
 
-            <!-- experience -->
+            <!-- ================================================
+                 EXPERIENCE SECTION
+                 Work history with dates and company details
+                 Uses two-column grid layout (responsive)
+                 ================================================ -->
             <section id="experience" class="experience">                
                 <div class="title">
                     <h2>Experience</h2>
                 </div>
                 
+                <!-- Current Position -->
                 <div class="row">
+                    <!-- Left column: Dates -->
                     <div class="column">
                         <p>
                             <b>March 2019 - Present</b>
                         </p>
                     </div>
                     
+                    <!-- Right column: Company and role details
+                         border-bottom class adds card styling with shadow and hover -->
                     <div class="column border-bottom">
+                        <!-- Company logo as background image -->
                         <div class="logocis">
                             <a href="https://www.cisin.com/" aria-label="Cyber Infrastructure website"></a>
                         </div>
@@ -110,6 +182,7 @@
                     </div>
                 </div>
 
+                <!-- Previous Position: Sapient -->
                 <div class="row">
                     <div class="column">
                         <p>
@@ -128,6 +201,7 @@
                     </div>
                 </div>
 
+                <!-- Prior Experience: WWT -->
                 <div class="row">
                     <div class="column">
                         <p>
@@ -147,12 +221,17 @@
                 </div>
             </section>
 
-            <!-- education -->
+            <!-- ================================================
+                 EDUCATION SECTION
+                 Academic history with institutions and dates
+                 Alternating background color from experience
+                 ================================================ -->
             <section id="education" class="education">                
                 <div class="title">
                     <h2>Education</h2>
                 </div>
                 
+                <!-- Bachelor's Degree -->
                 <div class="row">
                     <div class="column">
                         <p>
@@ -164,6 +243,7 @@
                         <p>
                             <b>Bachelors - Computer Science Engineering</b>
                         </p>
+                        <!-- University logo with link -->
                        <div style="width: 20%;" class="logocaktu">
                             <a href="https://aktu.ac.in/" aria-label="AKTU website"></a>
                         </div>
@@ -175,6 +255,7 @@
                     </div>
                 </div>
                 
+                <!-- Higher Secondary (12th Grade) -->
                 <div class="row">
                     <div class="column">
                         <p>
@@ -194,6 +275,7 @@
                     </div>
                 </div>
 
+                <!-- Senior Secondary (10th Grade) -->
                 <div class="row">
                     <div class="column">
                         <p>
@@ -214,91 +296,99 @@
                 </div>
             </section>
 
-            <!-- skills -->
+            <!-- ================================================
+                 SKILLS SECTION
+                 Technical skills with icons and hover effects
+                 Each skill in a gradient card with shine animation
+                 ================================================ -->
             <section id="skills" class="skills">
                 <div class="title">
                     <h2>Skills</h2>
                 </div>
                 
+                <!-- HTML & CSS Row -->
                 <div class="row">
                     <div class="column">
                         <div class="item">
                             <img src="images/html5.ico" alt="HTML5 logo">
-                            
                             <p>HTML</p>
                         </div>
                     </div>
                     <div class="column col-stack-margin">
                         <div class="item">
                             <img src="images/css3.ico" alt="CSS3 logo">
-                            
                             <p>CSS</p>
                         </div>
                     </div>
                 </div>
 
+                <!-- JavaScript & Bootstrap Row -->
                 <div class="row">
                     <div class="column">
                         <div class="item">
                             <img src="images/javascript.ico" alt="JavaScript logo">
-                            
                             <p>JavaScript</p>
                         </div>
                     </div>
                     <div class="column col-stack-margin">
                         <div class="item">
                             <img src="images/bootstrap.ico" alt="Bootstrap logo">
-                            
                             <p>BootStrap</p>
                         </div>
                     </div>
                 </div>
 
+                <!-- DBMS & SQL Server Row -->
                 <div class="row">
                     <div class="column">
                         <div class="item">
                             <img src="images/sql.ico" alt="SQL logo">
-                            
                             <p>DBMS</p>
                         </div>
                     </div>
                     <div class="column col-stack-margin">
                         <div class="item">
                             <img src="images/sqlserver.png" alt="SQL Server logo">
-                            
                             <p>SQL Server</p>
                         </div>
                     </div>
                 </div>
 
+                <!-- .NET Core & Angular Row -->
                 <div class="row">
                     <div class="column">
                         <div class="item">
                             <img src="images/core.png" alt=".NET Core logo">
-                            
                             <p>.Net core</p>
                         </div>
                     </div>
                     <div class="column col-stack-margin">
                         <div class="item">
                             <img src="images/angular.ico" alt="Angular logo">
-                            
                             <p>Angular</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- contact me -->
+            <!-- ================================================
+                 CONTACT SECTION
+                 Contact form and social media links
+                 Uses Formspree for form handling (no backend needed)
+                 ================================================ -->
             <section id="contact" class="contact">
                 <div class="title">
                     <h2>Contact Me</h2>
                 </div>
                 
-                <!-- contact form -->
                 <div class="row">            
+                    <!-- Left column: Contact Form -->
                     <div class="column">
+                        <!-- Form submits to Formspree service
+                             Formspree handles form submission and sends email -->
                         <form action="https://formspree.io/f/xleardol" method="post">
+                            <!-- Visually hidden labels for accessibility
+                                 Screen readers can announce field purpose -->
                             <label for="name" class="visually-hidden">Name</label>
                             <input type="text" id="name" name="name" placeholder="Name" required>
                             
@@ -313,31 +403,38 @@
                             <label for="message" class="visually-hidden">Message</label>
                             <textarea id="message" placeholder="Message" name="message" required></textarea>
                             
+                            <!-- Submit button with gradient styling -->
                             <input type="submit" value="Submit">
                         </form>
                     </div>
                     
-                    <!-- details and social links -->
+                    <!-- Right column: Contact Details & Social Links -->
                     <div class="column">
                         <div class="contact-details">
                             <h3>Mithun Verma</h3>
 
                             <h5>Web Developer | DBMS | .NET Core | Angular</h5>
                             <br>
+                            
+                            <!-- Phone number -->
                             <p>
                                 <b>Phone:</b>
                             </p>
-                            
                             <p>+91 9621946192</p>
-                            <br>        
+                            <br>
+                            
+                            <!-- Email address -->        
                             <p>
                                 <b>Email:</b>
                             </p>
-                            
                             <p>mvrkv0064@gmail.com</p>
                             <br>
                         </div>
                         
+                        <!-- Social Media Links
+                             target="_blank" opens in new tab
+                             rel="noopener noreferrer" for security
+                             aria-label for accessibility -->
                         <div class="social">
                             <a href="https://wa.me/919621946192" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                                 <i class="fab fa-whatsapp"></i>
