@@ -86,17 +86,6 @@ backdrop-filter: blur(10px);
 
 ---
 
-### Lines 176-180: Header Transition
-```css
-header.scrolled {
-    padding: 0.5em 0;
-    box-shadow: var(--shadow-lg);
-}
-```
-**❓ Question:** This class `scrolled` is referenced but I don't see it being applied in `script.js`. Is this implemented? If not, this is dead code.
-
----
-
 ### Lines 237-252: Navigation Hover Effect
 ```css
 nav div:hover {
@@ -119,18 +108,17 @@ nav div {
 ### Lines 286-322: Hero Section with Gradient Overlay
 ```css
 .hero {
-    position: relative;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%),
-                url('background-pattern.jpg') center/cover;
+    background-image: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), 
+                      url("images/hero-img.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     /* ... */
 }
 ```
-**✅ Stunning:** The gradient overlay on background creates a professional look.
+**✅ Stunning:** The gradient overlay on background creates a professional look with parallax scrolling effect.
 
-**⚠️ Issue:** `background-pattern.jpg` is referenced but doesn't exist in the repository. This will cause a 404 error. Either:
-1. Add the image file
-2. Remove the image reference and use solid gradient
-3. Use a data URI or CSS pattern
+**✅ Good:** The `hero-img.jpg` file exists in the `images/` directory.
 
 ---
 
@@ -725,10 +713,9 @@ document.querySelector('footer p').innerHTML =
 6. **Accessibility Considerations:** ARIA labels, focus states, and semantic HTML
 
 ### Critical Issues to Fix
-1. **Missing Background Image:** `background-pattern.jpg` referenced but doesn't exist
-2. **Form Action:** Contact form has no backend endpoint
-3. **Missing Form Labels:** Accessibility issue with form inputs
-4. **Dead CSS:** `.scrolled` class in CSS but not applied in JS
+1. **Form Action:** Contact form has no backend endpoint
+2. **Missing Form Labels:** Accessibility issue with form inputs
+3. **Pre-existing Inline Styles:** `index.html` has inline styles (lines 140, 247) that should be moved to CSS (note: these pre-date this PR)
 
 ### Recommended Enhancements
 1. **Accessibility:**
@@ -754,17 +741,16 @@ document.querySelector('footer p').innerHTML =
 
 ### Code Quality Score: **4.5/5** ⭐⭐⭐⭐✨
 
-**Verdict:** This is high-quality code with modern best practices. The UI enhancements are significant and professional. After fixing the critical issues (background image, form labels), this is ready for production. Excellent work overall!
+**Verdict:** This is high-quality code with modern best practices. The UI enhancements are significant and professional. After fixing the critical issues (form labels, contact form endpoint), this is ready for production. The background image (`hero-img.jpg`) is properly implemented and exists in the repository. Excellent work overall!
 
 ---
 
 ## Action Items
 
 ### Must Fix (Before Merge)
-- [ ] Remove or add `background-pattern.jpg`
-- [ ] Add proper labels to form inputs
+- [ ] Add proper labels to form inputs (accessibility requirement)
 - [ ] Fix contact form action endpoint or add JavaScript handler
-- [ ] Remove unused `.scrolled` CSS or implement the feature
+- [ ] Move inline styles from `index.html` lines 140, 247 to CSS classes (pre-existing issue)
 
 ### Should Fix (High Priority)
 - [ ] Add `prefers-reduced-motion` media query
