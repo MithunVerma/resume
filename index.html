@@ -30,6 +30,11 @@
     </head>
     
     <body>
+        <!-- Scroll Progress Indicator -->
+        <div class="scroll-progress">
+            <div class="scroll-progress-bar"></div>
+        </div>
+        
         <!-- Page Loader -->
         <div class="page-loader">
             <div class="loader-content">
@@ -97,66 +102,109 @@
                 </div>
             </section>
 
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="row stats-row">
+                    <div class="stat-item">
+                        <i class="fas fa-briefcase stat-icon"></i>
+                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-code stat-icon"></i>
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-users stat-icon"></i>
+                        <div class="stat-number" data-target="30">0</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-award stat-icon"></i>
+                        <div class="stat-number" data-target="8">0</div>
+                        <div class="stat-label">Technologies</div>
+                    </div>
+                </div>
+            </section>
+
             <!-- experience -->
             <section id="experience" class="experience fade-in-section">                
                 <div class="title">
                     <h2>Experience</h2>
                 </div>
                 
-                <div class="row">
-                    <div class="column">
-                        <p>
-                            <b>March 2019 - Present</b>
-                        </p>
-                    </div>
-                    
-                    <div class="column border-bottom">
-                        <div class="logocis">
-                            <a href="https://www.cisin.com/" aria-label="Cyber Infrastructure website"></a>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="row">
+                                <div class="column">
+                                    <p>
+                                        <b>March 2019 - Present</b>
+                                    </p>
+                                </div>
+                                
+                                <div class="column border-bottom">
+                                    <div class="logocis">
+                                        <a href="https://www.cisin.com/" aria-label="Cyber Infrastructure website"></a>
+                                    </div>
+                                    <p>
+                                        <b>Cyber Infrastructure, Indore</b>
+                                    </p>
+                                    
+                                    <p class="spacer">
+                                       Software Developer
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <p>
-                            <b>Cyber Infrastructure, Indore</b>
-                        </p>
-                        
-                        <p class="spacer">
-                           Software Developer
-                        </p>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="column">
-                        <p>
-                            <b>September 2016 - February 2019</b>
-                        </p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="row">
+                                <div class="column">
+                                    <p>
+                                        <b>September 2016 - February 2019</b>
+                                    </p>
+                                </div>
+                                
+                                <div class="column border-bottom">
+                                    <p>
+                                        <b>Sapient</b>
+                                    </p>
+                                    
+                                    <p class="spacer">
+                                       Software Developer - 2.6 years
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="column border-bottom">
-                        <p>
-                            <b>Sapient</b>
-                        </p>
-                        
-                        <p class="spacer">
-                           Software Developer - 2.6 years
-                        </p>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="column">
-                        <p>
-                            <b>Prior Experience</b>
-                        </p>
-                    </div>
-                    
-                    <div class="column border-bottom">
-                        <p>
-                            <b>WWT</b>
-                        </p>
-                        
-                        <p class="spacer">
-                           Software Developer
-                        </p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="row">
+                                <div class="column">
+                                    <p>
+                                        <b>Prior Experience</b>
+                                    </p>
+                                </div>
+                                
+                                <div class="column border-bottom">
+                                    <p>
+                                        <b>WWT</b>
+                                    </p>
+                                    
+                                    <p class="spacer">
+                                       Software Developer
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -236,68 +284,100 @@
                 
                 <div class="row">
                     <div class="column">
-                        <div class="item">
+                        <div class="item" data-skill-level="90">
                             <img src="images/html5.ico" alt="HTML5 logo">
-                            
-                            <p>HTML</p>
+                            <div class="skill-content">
+                                <p>HTML</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="column col-stack-margin">
-                        <div class="item">
+                        <div class="item" data-skill-level="85">
                             <img src="images/css3.ico" alt="CSS3 logo">
-                            
-                            <p>CSS</p>
+                            <div class="skill-content">
+                                <p>CSS</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="column">
-                        <div class="item">
+                        <div class="item" data-skill-level="80">
                             <img src="images/javascript.ico" alt="JavaScript logo">
-                            
-                            <p>JavaScript</p>
+                            <div class="skill-content">
+                                <p>JavaScript</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="column col-stack-margin">
-                        <div class="item">
+                        <div class="item" data-skill-level="75">
                             <img src="images/bootstrap.ico" alt="Bootstrap logo">
-                            
-                            <p>BootStrap</p>
+                            <div class="skill-content">
+                                <p>BootStrap</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="75"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="column">
-                        <div class="item">
+                        <div class="item" data-skill-level="85">
                             <img src="images/sql.ico" alt="SQL logo">
-                            
-                            <p>DBMS</p>
+                            <div class="skill-content">
+                                <p>DBMS</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="column col-stack-margin">
-                        <div class="item">
+                        <div class="item" data-skill-level="90">
                             <img src="images/sqlserver.png" alt="SQL Server logo">
-                            
-                            <p>SQL Server</p>
+                            <div class="skill-content">
+                                <p>SQL Server</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="column">
-                        <div class="item">
+                        <div class="item" data-skill-level="88">
                             <img src="images/core.png" alt=".NET Core logo">
-                            
-                            <p>.Net core</p>
+                            <div class="skill-content">
+                                <p>.Net core</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="88"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="column col-stack-margin">
-                        <div class="item">
+                        <div class="item" data-skill-level="82">
                             <img src="images/angular.ico" alt="Angular logo">
-                            
-                            <p>Angular</p>
+                            <div class="skill-content">
+                                <p>Angular</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="82"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

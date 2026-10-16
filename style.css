@@ -64,6 +64,25 @@
     font-weight: 600;
 }
 
+/* Scroll progress indicator */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    width: 0%;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px rgba(0, 178, 255, 0.5);
+}
+
 /* css to reset all */
 *{
     margin: 0;
@@ -375,6 +394,69 @@ nav div:hover a{
     background: linear-gradient(135deg, rgba(248, 249, 250, 0.5), rgba(255, 255, 255, 1));
 }
 
+/* Timeline styles */
+.timeline {
+    position: relative;
+    padding: 2em 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--accent-color), var(--primary-color));
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2em;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border: 4px solid var(--bg-white);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 4px rgba(0, 178, 255, 0.2);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 4px rgba(0, 178, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(0, 178, 255, 0.4);
+    }
+}
+
+.timeline-content {
+    position: relative;
+}
+
+@media only screen and (max-width: 745px) {
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-marker {
+        left: 20px;
+    }
+    
+    .timeline-content {
+        padding-left: 60px;
+    }
+}
+
 /* education section */
 
 /* bg-color - changes every alt. section  */
@@ -422,6 +504,58 @@ nav div:hover a{
 
 .skills .item:hover img {
     transform: rotate(360deg) scale(1.1);
+}
+
+/* skill content wrapper */
+.skill-content {
+    flex: 1;
+    padding-right: 2em;
+}
+
+.skill-content p {
+    color: var(--text-light);
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+/* skill progress bar */
+.skill-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1));
+    border-radius: 10px;
+    width: 0;
+    transition: width 1.5s ease-out;
+    position: relative;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .logocis>a {
