@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuCloseIcon = document.querySelector('.menu-close-icon');
     const navDivs = document.querySelectorAll('nav div');
     const navLinks = document.querySelectorAll('nav div a');
+    const scrollToTopBtn = document.getElementById('scrollToTop');
     
     // When menu opens
     menuIcon.addEventListener('click', function() {
@@ -55,5 +56,49 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
+    });
+    
+    // Scroll to top button functionality
+    if (scrollToTopBtn) {
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+        
+        // Scroll to top when button is clicked
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // Add animation on scroll for sections
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach(function(section) {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
     });
 });
