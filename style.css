@@ -1,44 +1,85 @@
-/* Main stylesheet for resume portfolio website */
-/* CSS Variables */
+/* ============================================================
+   MAIN STYLESHEET FOR RESUME PORTFOLIO WEBSITE
+   ============================================================ */
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   Centralized color scheme and design tokens for consistency
+   ============================================================ */
 :root {
-    --primary-color: #182153;
-    --border-color: #979797;
-    --bg-light: #dbdbdb;
-    --accent-color: #00b2ff;
-    --text-light: #fff;
-    --footer-bg: rgb(90, 89, 89);
-    --footer-text: rgb(214, 214, 214);
+    /* Primary brand colors */
+    --primary-color: #182153;           /* Dark blue for headers and main text */
+    --border-color: #979797;            /* Gray for borders and dividers */
+    --bg-light: #f5f7fa;               /* Light background for alternating sections */
+    --accent-color: #00b2ff;           /* Bright blue for highlights and CTAs */
+    --text-light: #fff;                /* White text for dark backgrounds */
+    
+    /* Footer colors */
+    --footer-bg: rgb(90, 89, 89);      /* Footer background color */
+    --footer-text: rgb(214, 214, 214); /* Footer text color */
+    
+    /* Shadow levels for depth and elevation */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);      /* Small shadow for subtle depth */
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);      /* Medium shadow for cards */
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);   /* Large shadow for modals */
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Shadow on hover state */
+    
+    /* Animation and transition timing */
+    --transition: all 0.3s ease;       /* Standard transition for smooth animations */
+    
+    /* Gradient overlays for modern look */
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  /* Purple gradient */
+    --gradient-accent: linear-gradient(135deg, #00b2ff 0%, #667eea 100%);   /* Blue to purple gradient */
 }
 
-/* css to reset all */
+/* ============================================================
+   RESET STYLES
+   Remove default browser spacing and normalize box model
+   ============================================================ */
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;  /* Include padding and border in element width */
 }
 
-/* smooth scrolling */
+/* ============================================================
+   SMOOTH SCROLLING
+   Enable smooth scrolling for anchor links
+   ============================================================ */
 html {
     scroll-behavior: smooth;
 }
 
-/* css for font styles */
+/* ============================================================
+   BASE STYLES
+   Global font and color settings for the entire document
+   ============================================================ */
 html, body {
     background-color: var(--text-light);
     color: var(--primary-color);
-    font-family: 'Lato', sans-serif;            
+    font-family: 'Lato', sans-serif;  /* Clean, modern sans-serif font */          
 }
 
-/* css for heading and paragraph tags */
+/* ============================================================
+   TYPOGRAPHY
+   Heading and paragraph styles with hierarchy
+   ============================================================ */
+
+/* Main section headings (h2) */
 h2 {
     font-size: 1.3em;
+    font-weight: 700;
+    color: var(--primary-color);
 }
 
+/* Sub-headings (h3) for job titles, education */
 h3 {
     font-size: 1.2em;
     line-height: 1.5em;
+    font-weight: 600;
 }
 
+/* Bordered headings (h4) for visual separation */
 h4 {
     border-top: 1px solid var(--border-color);
     padding-top: 1em;
@@ -48,64 +89,129 @@ h4 {
     margin-bottom: 1em;
 }
 
+/* Small text headings (h5) for dates, locations */
 h5 {
     font-size: 0.7em;
+    font-weight: 500;
 }
 
+/* Body text styling with improved readability */
 p {
-    line-height: 1.8em;
+    line-height: 1.8em;    /* Comfortable reading line height */
     font-size: 0.8em;
+    color: #555;           /* Slightly lighter than headings for hierarchy */
 }
 
-/* css for section tag */
+/* ============================================================
+   SECTION LAYOUT
+   Consistent spacing and positioning for page sections
+   ============================================================ */
 section{
-    padding: 2em 0;
+    padding: 3em 0;        /* Vertical spacing between sections */
+    position: relative;     /* For absolute positioning of child elements */
 }
 
-/* css for section title */
+/* ============================================================
+   SECTION TITLES
+   Styled headings with decorative underlines
+   ============================================================ */
 .title{
     width: 100%;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--accent-color);  /* Full-width colored border */
     text-align: center;
     padding-bottom: 1em;
+    margin-bottom: 2em;
+    position: relative;
 }
 
-/* css for rows - making grids */
+/* Center the heading text */
+.title h2 {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 0.5em;
+}
+
+/* Decorative accent line below section titles */
+.title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1em;
+    left: 50%;
+    transform: translateX(-50%);  /* Center the line */
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-accent);  /* Gradient accent line */
+    border-radius: 2px;
+}
+
+/* ============================================================
+   GRID SYSTEM
+   Flexbox-based layout for responsive columns
+   ============================================================ */
+
+/* Row container for columns */
 .row{
-    width: 90%;
-    margin: 0 auto;
+    width: 90%;            /* Responsive width with margins */
+    margin: 0 auto;        /* Center the container */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack on mobile by default */
 }
 
-/* css for columns - making grids */
+/* Individual column within a row */
 .column{
     margin-top: 1em;
     text-align: left;
 }
 
-/* spacing in sections */
+/* ============================================================
+   UTILITY CLASSES
+   Reusable helper classes for spacing and layout
+   ============================================================ */
+
+/* Add extra vertical spacing */
 .spacer{
     padding-top: 1em;
 }
 
-/* when screen shrinks */
+/* Remove margin when columns stack on mobile */
 .col-stack-margin{
     margin-top: 0;
 }
 
-/* separate rows */
+/* ============================================================
+   CARD COMPONENTS
+   Styled containers with hover effects for content blocks
+   ============================================================ */
 .border-bottom{
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 1em;
+    background: white;
+    padding: 1.5em;
+    border-radius: 10px;           /* Rounded corners */
+    box-shadow: var(--shadow-md);  /* Depth shadow */
+    margin-bottom: 1.5em;
+    transition: var(--transition);  /* Smooth hover animation */
 }
 
-/* tech. used */
+/* Lift card on hover for interactivity */
+.border-bottom:hover {
+    transform: translateY(-5px);     /* Move up slightly */
+    box-shadow: var(--shadow-hover); /* Increase shadow depth */
+}
+
+/* ============================================================
+   TEXT UTILITIES
+   ============================================================ */
+
+/* Smaller text for technical details */
 .small-text{
     font-size: 0.8em;
 }
 
-/* Visually hidden labels for accessibility */
+/* ============================================================
+   ACCESSIBILITY
+   Hide elements visually but keep them for screen readers
+   ============================================================ */
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -118,256 +224,495 @@ section{
     border-width: 0;
 }
 
-/* header section */
+/* ============================================================
+   HEADER SECTION
+   Fixed navigation bar with logo and menu
+   ============================================================ */
 
-/* main header row */
+/* Main fixed header container */
 .header-row{
     line-height: 3em;
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: fixed;         /* Stay at top while scrolling */
     top: 0;
-    background-color: var(--text-light);
+    background-color: rgba(255, 255, 255, 0.98);  /* Semi-transparent white */
     width: 100%;
-    border-bottom: 1px solid var(--border-color);
-    z-index: 1000;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.2);
+    z-index: 1000;          /* Above all other content */
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(10px);  /* Blur content behind header */
 }
 
-/* logos, icons */
+/* ============================================================
+   HEADER - LOGO AND ICONS
+   Top row with branding and menu toggle
+   ============================================================ */
+
+/* Container for logo and menu icons */
 .small-header{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;  /* Logo left, menu right */
 }
 
-/* page logo */
+/* Site logo styling */
 .logo{
     padding: 10px 20px;
     font-size: 1.2em;
 }
 
+/* Remove underline from logo link */
 .logo a{
     text-decoration: none;
     color: var(--primary-color);
 }
 
+/* Profile image in header */
 .profile-img {
-    border-radius: 50%;
+    border-radius: 50%;              /* Make circular */
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
 }
 
+/* Zoom effect on profile image hover */
+.profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Name text container in header */
 .name-header {
     margin-top: 18px;
 }
 
+/* Name with gradient text effect */
 .name-text {
     font-size: 22px;
-    color: var(--accent-color);
+    background: var(--gradient-accent);           /* Apply gradient */
+    -webkit-background-clip: text;                /* Clip to text shape */
+    -webkit-text-fill-color: transparent;         /* Make text transparent */
+    background-clip: text;                        /* Standard property */
+    font-weight: 700;
 }
 
-/* menu icons */
+/* ============================================================
+   MOBILE MENU ICONS
+   Hamburger menu toggle buttons
+   ============================================================ */
 .menu-icon,
 .menu-close-icon{
     font-size: 1.4em;
     line-height: 3em;
     padding-right: 20px;
-    cursor: pointer;
+    cursor: pointer;         /* Show it's clickable */
 }
 
+/* Hide close icon by default (shown when menu is open) */
 .menu-close-icon{
     display: none;
 }
 
-/* navigation tabs */
+/* ============================================================
+   NAVIGATION MENU
+   Mobile-first vertical menu (horizontal on desktop)
+   ============================================================ */
+
+/* Individual navigation items */
 nav div{
     width: 100%;
     border-bottom: 1px solid var(--bg-light);
     text-align: center;
-    display: none;
+    display: none;           /* Hidden by default on mobile */
     cursor: pointer;
     font-size: 0.8em;
 }
 
+/* Border on first menu item */
 nav div:first-child{
     border-top: 1px solid var(--bg-light);
 }
 
+/* Remove border from last menu item */
 nav div:last-child{
     border-bottom: none;
 }
 
-/* navigational links */
+/* Navigation link styling */
 nav a{
     display: block;
     text-decoration: none;
     color: var(--primary-color);
+    transition: var(--transition);
+    font-weight: 500;
 }
 
-/* navigation hover */
+/* ============================================================
+   NAVIGATION HOVER EFFECTS
+   Interactive feedback for menu items
+   ============================================================ */
 nav div:hover{
-    background-color: var(--primary-color);
+    background: var(--gradient-primary);  /* Gradient background on hover */
+    transform: translateX(5px);           /* Slide right slightly */
 }
 
+/* Change text color on hover */
 nav div:hover a{
     color: var(--text-light);
 }
 
-/* intro section */
-
-/* background image */
+/* ============================================================
+   HERO SECTION
+   Full-width banner with background image and overlay
+   ============================================================ */
 .hero{
-    background-image: linear-gradient(rgba(24, 33, 83, 0.7), rgba(24, 33, 83, 0.7)), url("images/hero-img.jpg");
-    background-size: cover;
-    background-position: center;
-    margin-top: 4em;
+    /* Gradient overlay on top of background image */
+    background-image: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), url("images/hero-img.jpg");
+    background-size: cover;              /* Fill entire container */
+    background-position: center;         /* Center the image */
+    background-attachment: fixed;        /* Parallax effect on scroll */
+    margin-top: 4em;                    /* Space for fixed header */
+    min-height: 60vh;                   /* Take up most of viewport */
+    display: flex;
+    align-items: center;                 /* Vertically center content */
 }
 
-/* responsive intro section */
+/* ============================================================
+   HERO CALLOUT BOX
+   Introduction text container with animation
+   ============================================================ */
 .hero .callout{
-    padding: 1em 0.5em;
+    padding: 2em 1.5em;
     text-align: center;
-    background-color: var(--bg-light);
+    background-color: rgba(255, 255, 255, 0.95);  /* Nearly opaque white */
     margin: 0 auto;
     width: 100%;
+    border-radius: 15px;                          /* Rounded corners */
+    box-shadow: var(--shadow-lg);                 /* Strong shadow for depth */
+    backdrop-filter: blur(10px);                  /* Blur background */
+    animation: fadeInUp 1s ease-out;              /* Entrance animation */
 }
 
-/* education section */
+/* Callout heading */
+.hero .callout h2 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+    color: var(--primary-color);
+}
 
-/* bg-color - changes every alt. section  */
+/* Callout description text */
+.hero .callout p {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.8;
+}
+
+/* ============================================================
+   HERO ANIMATION
+   Fade in and slide up effect on page load
+   ============================================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);  /* Start below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);     /* End in place */
+    }
+}
+
+/* ============================================================
+   EDUCATION SECTION
+   Background styling for education content
+   ============================================================ */
 .education{
-    background-color: var(--bg-light);
+    background: linear-gradient(to bottom, var(--bg-light) 0%, white 100%);
+    padding: 3em 0;
 }
 
-/* skills section */
+/* ============================================================
+   EXPERIENCE SECTION
+   Background styling for work experience
+   ============================================================ */
+.experience {
+    padding: 3em 0;
+}
 
-/* style the given skills */
+/* ============================================================
+   SKILLS SECTION
+   Display technical skills with icons and hover effects
+   ============================================================ */
+.skills {
+    background: linear-gradient(to bottom, white 0%, var(--bg-light) 100%);
+    padding: 3em 0;
+}
+
+/* Individual skill item with gradient background */
 .skills .item{
     display: flex;
     justify-content: left;
-    background-color: var(--primary-color);
-    padding: 0.5em 0;
+    background: var(--gradient-primary);     /* Gradient background */
+    padding: 1em 0;
     padding-left: 2em;
     margin: 1em 0;
     margin-left: 10%;
     margin-right: 10%;
     align-items: center;
     color: rgb(230, 227, 227);
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;                        /* Hide overflow for shine effect */
 }
 
-/* last item in skills list */
+/* ============================================================
+   SKILLS - SHINE EFFECT
+   Animated light sweep on hover
+   ============================================================ */
+.skills .item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;                            /* Start off-screen left */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;                  /* Animate across */
+}
+
+/* Lift and scale skill item on hover */
+.skills .item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Move shine effect across on hover */
+.skills .item:hover::before {
+    left: 100%;                             /* End off-screen right */
+}
+
+/* Remove bottom margin from last skill */
 .skills .item:last-child{
     margin-bottom: 0;
 }
 
-/* skill icon */
+/* ============================================================
+   SKILLS - ICONS
+   Technology and skill icons with hover effects
+   ============================================================ */
 .skills img{
     margin-right: 1em;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));  /* Shadow for depth */
+    transition: var(--transition);
 }
 
+/* Rotate and scale icon on hover */
+.skills .item:hover img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* ============================================================
+   COMPANY AND UNIVERSITY LOGOS
+   Background image logos with hover effects
+   ============================================================ */
+
+/* CIS (Cyber Infrastructure) logo */
 .logocis>a {
     background: url(https://www.cisin.com/images/logo.png);
     width: 113px;
     height: 68px;
     display: block;
     background-color: #141414;
-    border-radius: 5%;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    margin-bottom: 0.5em;
 }
 
+/* Scale logo on hover */
+.logocis>a:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+/* AKTU (University) logo */
 .logocaktu>a {
     background: url(https://aktu.ac.in/images/logo.png);
     width: 100px;
     height: 100px;
     display: block;
     background-repeat: no-repeat;
+    transition: var(--transition);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
-/* contact section */
+/* Scale and enhance shadow on hover */
+.logocaktu>a:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
 
-/* bg-color - changes every alt. section */
+/* ============================================================
+   CONTACT SECTION
+   Contact form and social media links
+   ============================================================ */
 .contact{
-    background-color: var(--bg-light);
+    background: linear-gradient(to bottom, var(--bg-light) 0%, white 100%);
+    padding: 3em 0;
 }
 
-/* styling contact form */
+/* ============================================================
+   CONTACT FORM - INPUT FIELDS
+   Styled text inputs with focus effects
+   ============================================================ */
 .contact input{
-    height: 2.5em;
+    height: 3em;
     width: 100%;
     margin-bottom: 1em;
-    border-radius: 2px;
-    border: none;
-    padding: 5px;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;            /* Light border */
+    padding: 10px 15px;
+    font-family: 'Lato', sans-serif;      /* Match body font */
+    font-size: 0.95em;
+    transition: var(--transition);
+    background: white;
 }
 
-/* resetting name and email field */
+/* Focus state with accent color and glow */
+.contact input:focus {
+    outline: none;                         /* Remove default outline */
+    border-color: var(--accent-color);     /* Accent border color */
+    box-shadow: 0 0 0 3px rgba(0, 178, 255, 0.1);  /* Subtle glow */
+    transform: translateY(-2px);           /* Lift slightly */
+}
+
+/* Reset margins for name field */
 .contact input[id="name"]{
     margin-right: 0;
 }
 
+/* Reset margins for email field */
 .contact input[id="email"]{
     margin-left: 0;
 }
 
-/* text area - enough space for message */
+/* ============================================================
+   CONTACT FORM - TEXTAREA
+   Multi-line message input with focus effects
+   ============================================================ */
 .contact textarea {
-    height: 8em;
+    height: 10em;                          /* Tall enough for messages */
     width: 100%;
     margin-bottom: 1em;
-    border: none;
-    font-size: 1.1em;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
     vertical-align: top;
-    padding: 5px;
+    padding: 10px 15px;
+    font-family: 'Lato', sans-serif;
+    transition: var(--transition);
+    resize: vertical;                      /* Allow vertical resize only */
+    background: white;
 }
 
+/* Focus state matching input fields */
+.contact textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 178, 255, 0.1);
+}
+
+/* ============================================================
+   CONTACT FORM - SUBMIT BUTTON
+   Styled submit button with gradient and hover effects
+   ============================================================ */
 .contact input[type="submit"]{
-    background-color: var(--primary-color);
+    background: var(--gradient-primary);   /* Gradient button */
     color: var(--text-light);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
+    border: none;
+    font-weight: 600;
+    font-size: 1em;
+    letter-spacing: 0.5px;                 /* Slightly spaced letters */
+    box-shadow: var(--shadow-md);
 }
 
+/* Lift button on hover */
 .contact input[type="submit"]:hover{
-    background-color: #0f1838;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
 }
 
-/* style social media icons */
+/* Push down when clicked */
+.contact input[type="submit"]:active{
+    transform: translateY(0);
+}
+
+/* ============================================================
+   SOCIAL MEDIA ICONS
+   Links to social profiles with hover effects
+   ============================================================ */
 .contact .social{
     line-height: 3em;
-    border-top: 1px solid var(--border-color);
+    border-top: 2px solid var(--border-color);
+    padding-top: 1em;
+    margin-top: 1em;
 }
 
+/* Individual social link styling */
 .social a{
     text-decoration: none;    
     color: var(--primary-color);
     margin-right: 15px;
-    transition: color 0.3s ease;
+    transition: var(--transition);
+    font-size: 1.5em;
+    display: inline-block;                 /* Allow transform */
 }
 
+/* Lift and color change on hover */
 .social a:hover{
     color: var(--accent-color);
+    transform: translateY(-3px) scale(1.1);
 }
 
-/* footer section */
-
+/* ============================================================
+   FOOTER SECTION
+   Site footer with gradient background
+   ============================================================ */
 footer{
-    padding: 1em 0;
-    font-size: 0.8em;
-    background-color: var(--footer-bg);
-    color: var(--footer-text);
+    padding: 2em 0;
+    font-size: 0.9em;
+    background: var(--gradient-primary);   /* Match button gradient */
+    color: var(--text-light);
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);  /* Shadow on top edge */
 }
 
-/* projects section */
-
+/* ============================================================
+   PROJECTS SECTION
+   Portfolio projects display
+   ============================================================ */
 #projects {
-    min-height: 50vh;
+    min-height: 50vh;                      /* Minimum height for content */
 }
 
+/* Project description text */
 #projects p{
     padding-top: 1em;
     font-size: 0.9em;
 }
 
+/* Small text in projects (tech stack, etc.) */
 #projects .small-text{
     font-size: 0.75em;
 }
 
+/* ============================================================
+   EMPTY STATE
+   Message when no content is available
+   ============================================================ */
 .empty-state {
     text-align: center;
     padding: 3em 1em;
@@ -375,35 +720,95 @@ footer{
 
 .empty-state p {
     font-size: 1.2em;
-    color: var(--border-color);
+    color: var(--border-color);            /* Muted color */
 }
 
+/* ============================================================
+   BUTTON COMPONENT
+   Reusable button styling with gradient
+   ============================================================ */
 .btn {
     font-size: 14px;
-    padding: 6px 12px;
+    padding: 12px 24px;
     margin-bottom: 0;
-
     display: inline-block;
     text-decoration: none;
     text-align: center;
-    white-space: nowrap;
+    white-space: nowrap;                   /* Prevent text wrapping */
     vertical-align: middle;
-    -ms-touch-action: manipulation;
+    -ms-touch-action: manipulation;        /* Remove touch delay */
     touch-action: manipulation;
     cursor: pointer;
-    -webkit-user-select: none;
+    -webkit-user-select: none;             /* Prevent text selection */
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-
-    background-color: #5bc0de;
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 25px;                   /* Pill-shaped button */
+    color: white;
+    font-weight: 600;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
 }
 
-/* responsive html - successive increase in screen size */
+/* Lift button on hover */
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
 
+/* Push down when clicked */
+.btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================================
+   SCROLL TO TOP BUTTON
+   Fixed button to return to page top
+   ============================================================ */
+.scroll-to-top {
+    position: fixed;                       /* Fixed to viewport */
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;                    /* Circular button */
+    background: var(--gradient-accent);    /* Blue gradient */
+    color: white;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    opacity: 0;                            /* Hidden by default */
+    visibility: hidden;
+    z-index: 999;                          /* Above content but below header */
+}
+
+/* Show button when class is added via JavaScript */
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Lift button on hover */
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Slight press effect when clicked */
+.scroll-to-top:active {
+    transform: translateY(-2px);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN - SMALL SCREENS (500px+)
+   Layout adjustments for larger mobile devices
+   ============================================================ */
 @media only screen and (min-width : 500px){
+    /* Increase heading sizes */
     h2{
         font-size: 1.3em;
     }
@@ -412,23 +817,28 @@ footer{
         font-size: 0.8em;
     }
 
+    /* Increase body text size */
     p{
         font-size: 0.9em;
     }
 
+    /* Narrower content container */
     .row{
         width: 80%;
     }
 
+    /* Narrower hero callout */
     .hero .callout{
         width: 70%;
     }
 
+    /* Side-by-side name and email inputs */
     .contact input[id="name"],
     .contact input[id="email"]{
-        width: 49%;
+        width: 49%;                        /* Almost half width each */
     }
     
+    /* Spacing between inputs */
     .contact input[id="name"]{
         margin-right: 1%;
     }
@@ -439,57 +849,72 @@ footer{
 
 }
 
+/* ============================================================
+   RESPONSIVE DESIGN - TABLETS (746px+)
+   Two-column layout and horizontal navigation
+   ============================================================ */
 @media only screen and (min-width : 746px) {
+    /* Further increase heading sizes */
     h2{
         font-size: 1.5em;
     }
 
+    /* Increase body text with more line height */
     p{
         font-size: 1em;
         line-height: 2em;
     }
 
+    /* Switch to horizontal layout */
     .row{
-        flex-direction: row;
+        flex-direction: row;               /* Side-by-side columns */
     }
 
+    /* Equal-width columns */
     .column{
         width: 50%;
         margin-top: 1em;
     }
 
+    /* Right-align first column content */
     .column:first-child{
         margin-right: 2em;
         text-align: right;
     }
     
+    /* Left-align second column content */
     .column:last-child{
         margin-left: 2em;
         text-align: left;
     }
 
+    /* Horizontal header layout */
     .header-row{
         justify-content: space-between;
-        flex-direction: row;
+        flex-direction: row;               /* Logo left, nav right */
     }
 
+    /* Hide mobile menu icons */
     header i{
         display: none !important;
     }
 
+    /* Horizontal navigation menu */
     nav div{
         border: 0 !important;
         width: 8em;
-        display: inline-block !important;
+        display: inline-block !important;  /* Always visible */
         padding: 10px 20px;
         font-size: 0.9em;
     }
 
+    /* Narrower hero callout on desktop */
     .hero .callout{
         padding: 2em 1em;
         width: 50%;
     }
 
+    /* Centered skill items with fixed width */
     .skills .item{
         display: inline-flex;
         justify-content: left;
@@ -497,6 +922,7 @@ footer{
         width: 70%;
     }
 
+    /* Left-align both project columns */
     #projects .column:first-child{
         margin-right: 3em;
         text-align: left;
@@ -507,27 +933,40 @@ footer{
         text-align: left;
     }
 
+    /* Project text styling */
     #projects p{
         padding-top: 1em;
         font-size: 0.9em;
     }
 
+    /* Square bullet points for project lists */
     #projects ul{
         list-style-type: square;
     }
 }
 
+/* ============================================================
+   RESPONSIVE DESIGN - LARGER TABLETS (840px+)
+   Increase font sizes for better readability
+   ============================================================ */
 @media only screen and (min-width : 840px) {
+    /* Larger logo */
     .logo{
         font-size: 1.5em;
     }
     
+    /* Larger navigation text */
     nav div{
         font-size: 1em;
     }
 }
 
+/* ============================================================
+   RESPONSIVE DESIGN - DESKTOP (917px+)
+   Final layout adjustments for large screens
+   ============================================================ */
 @media only screen and (min-width : 917px) {
+    /* Narrower skill items for better centering */
     .skills .item{
         width: 60%;
     }
